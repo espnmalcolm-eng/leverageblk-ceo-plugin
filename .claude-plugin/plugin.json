@@ -1,0 +1,11 @@
+{
+  "name": "leverageblk-ceo",
+  "version": "0.1.0",
+  "description": "LeverageBLK CEO plugin for David — loads company context, brand voice, and the CTO handoff protocol into every Cowork session.",
+  "author": {
+    "name": "Malcolm Purefoy",
+    "url": "https://leverageblk.com"
+  },
+  "commands": "./commands",
+  "skills": "./skills"
+}
