@@ -1,62 +1,100 @@
-# LeverageBLK CEO plugin — David's setup guide
+# LeverageBLK — David's Claude setup
 
-Hey David — this is your Claude setup. Install it once and Claude shows up to every
-Cowork session already knowing the company, brand voice, and how to hand work to Malcolm.
-
----
-
-## Step 1 — Install Cowork
-
-Download Claude Desktop from https://claude.ai/download and open the Cowork tab,
-or go directly to https://claude.ai/cowork
+One-time setup. After this Claude shows up to every session already knowing the
+company, brand voice, and how to hand work to Malcolm.
 
 ---
 
-## Step 2 — Connect Gmail
+## Step 1 — Download Claude Desktop
 
-In Cowork, open Settings → Connectors → search "Gmail" → connect with the
-leverageblk@gmail.com Google account. This is how briefs reach Malcolm.
-
----
-
-## Step 3 — Install the plugin
-
-In a Cowork session, run:
-
-```
-/plugin install https://github.com/espnmalcolm-eng/leverageblk-ceo-plugin
-```
-
-Once installed, Claude knows everything it needs — no setup every session.
+Go to https://claude.ai/download → download and install → sign in with your account.
+Open the app and switch to the **Cowork** tab.
 
 ---
 
-## What you can do
+## Step 2 — Paste your Global Instructions
 
-| Command | What it does |
-|---|---|
-| `/brief <ask>` | Turns your ask into a structured brief and sends it to Malcolm |
-| `/content <ask>` | Drafts on-brand copy, posts, or outreach in LeverageBLK's voice |
-| `/sync` | Gives you a CEO-readable summary of what's shipped and what's coming |
+Global Instructions load at the start of every Cowork session automatically.
+
+1. In Cowork, go to **Settings → Cowork → Edit** next to "Global instructions"
+2. Open the file `GLOBAL-INSTRUCTIONS.md` (in this folder)
+3. Copy everything and paste it into the text box
+4. Click **Save**
+
+Done. Claude now knows who you are, the brand, and how briefs work — every session.
 
 ---
 
-## How the brief loop works
+## Step 3 — Connect Gmail
 
-1. You describe what you need — bug, feature, copy change, landing page update
-2. Claude writes a structured brief (you approve it first)
-3. Brief goes to leverageblk@gmail.com automatically
-4. Malcolm's Claude Code picks it up at his next session, runs it, replies to the thread
-5. You see the reply in Gmail — what changed, what to check
+In Claude Desktop: **Settings → Connectors → search "Gmail" → connect**
+Use the leverageblk@gmail.com Google account.
 
-**Landing page asks** go to the web team. **App asks** go to the mobile build.
-Claude knows which is which and asks if it's not obvious.
+This is how briefs reach Malcolm and how you see his replies.
+
+---
+
+## Step 4 — Create your LeverageBLK Cowork Project
+
+Projects give you memory across sessions — Claude remembers what you worked on last time.
+
+1. In Cowork, click **Projects → New Project**
+2. Name it: `LeverageBLK`
+3. Point it at this folder on your computer (wherever you saved it)
+4. Add instructions: paste the contents of `GLOBAL-INSTRUCTIONS.md` here too
+5. Click **Create**
+
+Use this project for all LeverageBLK work so Claude builds context over time.
+
+---
+
+## How to use it day to day
+
+**Send Malcolm a brief**
+Just describe what you need and Claude will write the structured brief and send it:
+> "The waitlist form on the landing page feels slow on mobile, can we fix it?"
+
+Claude will ask a couple of clarifying questions, write the brief, show it to you,
+and send it to leverageblk@gmail.com once you say go.
+
+**Draft on-brand content**
+> "Write a LinkedIn post announcing the HBCU ambassador program"
+> "Draft an outreach email to the NABJ DC chapter"
+> "Write Instagram copy for the culture mixer event"
+
+Claude applies the LeverageBLK voice automatically from your global instructions.
+
+**Check sprint state before a call**
+> "What's shipped and what's coming? I have a partner call in 20 minutes."
+
+Claude will summarize what Malcolm's side has been working on in plain language.
+
+**Check Gmail for brief replies**
+> "Any replies from Malcolm on open briefs?"
+
+Claude reads leverageblk@gmail.com and surfaces what came back.
 
 ---
 
 ## One rule
 
-Always use `/brief` for anything product or engineering — never send a vague ask directly.
-A clean brief means Malcolm's agents can act without a back-and-forth.
+Always describe what you need before Claude acts — it will ask clarifying questions
+if anything is unclear. That question-first step is what keeps briefs clean and
+prevents Malcolm's agents from building the wrong thing.
 
-Questions → leverageblk@gmail.com or text Malcolm.
+---
+
+## What each brief type means for Malcolm
+
+| Type | What happens on Malcolm's side |
+|---|---|
+| `landing` copy or design | Goes to the web repo, runs as a build loop |
+| `app` bug or feature | Goes to the mobile repo, Codex executes it |
+| `infra` | Goes to Supabase, database-level work |
+| `p0` | Malcolm sees it immediately — blocking |
+| `p1` | This sprint — picked up at next session start |
+| `p2` | Backlog — queued for later |
+
+---
+
+Questions → text Malcolm or reply to any email in the leverageblk@gmail.com thread.
